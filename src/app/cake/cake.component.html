@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem">
+  <img
+    (click)="showCakeDetails()"
+    [src]="cakedata.image"
+    class="card-img-top"
+    alt="..."
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ cakedata.name }}</h5>
+    <a href="#" class="btn btn-primary">{{ cakedata.price }}</a>
+  </div>
+</div>

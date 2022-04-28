@@ -1,0 +1,60 @@
+<nav class="navbar navbar-light bg-dark">
+  <div class="container-fluid">
+    <a style="color: white" class="navbar-brand" routerLink="/home"
+      >KITCHEN STORY</a
+    >
+    <form class="d-flex">
+      <input
+        name="search"
+        [(ngModel)]="searchtext"
+        class="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button (click)="search()" class="btn btn-success" type="submit">
+        <i i-bs name="search"></i>
+      </button>
+    </form>
+    <div class="d-flex">
+      <button
+        style="margin: 0 5px"
+        *ngIf="isLoggedIn"
+        routerLink="/addcake"
+        class="btn btn-primary"
+      >
+        <i i-bs name="plus-square-fill"></i>
+        Add New Cake
+      </button>
+      <button *ngIf="!isLoggedIn" routerLink="/login" class="btn btn-success">
+        <i i-bs name="box-arrow-in-left"></i>
+        Login
+      </button>
+      <button
+        style="margin: 0 5px"
+        *ngIf="isLoggedIn"
+        routerLink="/cart"
+        class="btn btn-success"
+      >
+        <i i-bs name="cart3"></i>
+      </button>
+
+      <button
+        style="margin: 0 5px"
+        *ngIf="isLoggedIn"
+        routerLink="/myorders"
+        class="btn btn-warning"
+      >
+        <i i-bs name="box-seam"></i>
+      </button>
+      <button
+        *ngIf="isLoggedIn"
+        class="btn btn-danger"
+        routerLink="/home"
+        (click)="logout()"
+      >
+        <i i-bs name="box-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+</nav>

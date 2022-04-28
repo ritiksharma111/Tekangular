@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #round {
+        border-radius: 50%;
+        size: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartitems; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ item.name }}</td>
+            <td>
+              <img
+                style="height: 60px; width: 60px"
+                [src]="item.image"
+                alt=""
+              />
+            </td>
+            <td>{{ item.price | currency: "INR" }}</td>
+            <td>
+              <button
+                (click)="decreaseQuantity(i)"
+                id="round"
+                type="button"
+                class="btn btn-danger btn-sm py-0"
+              >
+                <i i-bs name="dash"></i>
+              </button>
+              {{ item.quantity }}
+              <button
+                (click)="increaseQuantity(i)"
+                id="round"
+                type="button"
+                class="btn btn-success btn-sm py-0"
+              >
+                <i i-bs name="plus"></i>
+              </button>
+            </td>
+            <td>
+              <button (click)="removeCakefromCart(i)" class="btn btn-danger">
+                <i i-bs name="trash3"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div>Total Price: {{ totalPrice | currency: "INR" }}</div>
+      <button
+        (click)="checkout()"
+        class="btn btn-warning"
+        routerLink="/checkout"
+        style="float: right"
+      >
+        Checkout
+      </button>
+    </div>
+  </body>
+</html>

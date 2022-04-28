@@ -1,0 +1,7 @@
+<button (click)="lowToHigh()" class="btn btn-light">Low to High</button>
+<button (click)="highToLow()" class="btn btn-light">High to Low</button>
+
+<div class="row">
+  <app-cake *ngFor="let eachcake of cakes" class="col" [cakedata]="eachcake">
+  </app-cake>
+</div>
